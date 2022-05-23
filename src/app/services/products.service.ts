@@ -14,6 +14,10 @@ export class ProductsService {
     // http call to retrieve list of products
   };
 
+  getOrderData() {
+    // http call to retrieve list of orders
+  }
+
   clearCart() {
     this.cartItems = [];
   }
