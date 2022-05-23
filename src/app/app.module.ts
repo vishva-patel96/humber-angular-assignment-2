@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { MatCardModule } from '@angular/material/card';
+import { ItemComponent } from './components/item/item.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     NotFoundComponent,
     CartComponent,
     SearchBarComponent,
-    NavBarComponent
+    NavBarComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
     MatButtonModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

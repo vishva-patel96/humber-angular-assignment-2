@@ -18,7 +18,12 @@ search-bar {
 
 a {
     padding: 8px;
+    height: 12px;
     cursor: pointer; 
+}
+
+a:hover {
+    color: black;
 }
 
 .container:last-child {
