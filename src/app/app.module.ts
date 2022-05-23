@@ -17,6 +17,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MatCardModule } from '@angular/material/card';
 import { ItemComponent } from './components/item/item.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { OrderItemComponent } from './components/order-item/order-item.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ItemComponent } from './components/item/item.component';
     CartComponent,
     SearchBarComponent,
     NavBarComponent,
-    ItemComponent
+    ItemComponent,
+    CartItemComponent,
+    OrderItemComponent
   ],
   imports: [
     BrowserModule,

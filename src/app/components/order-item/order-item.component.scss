@@ -1,11 +1,15 @@
 .example-card {
-    width: 360px;
+    min-width: 90vw;
     max-height: 600px;
     padding: 10px 20px 20px;
     border: 1px solid black;
     box-shadow: 1px 1px 9px 0px;
-    flex-grow: 1;
+    display: flex;
   }
+
+.mat-card-content {
+    margin: 20px;
+}
 
 img {
     display: block;
@@ -16,6 +20,5 @@ img {
     margin: auto;
 }
 
-button:hover {
-    background-color: rgb(205, 205, 205)
-}
+
+
