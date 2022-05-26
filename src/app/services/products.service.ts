@@ -10,7 +10,7 @@ import { IProductData, IOrderData } from '../productInterface';
 export class ProductsService {
 
   private listOfProducts:IProductData[] = [];
-  cartItems = [];
+  private cartItems:IProductData[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +22,14 @@ export class ProductsService {
   getOrderData() {
     // http call to retrieve list of orders
     return this.http.get('../../assets/order-data.json')
+  }
+
+  addToCart(item: IProductData) {
+    this.cartItems.push(item)
+  }
+
+  getCartItems():IProductData[] {
+    return this.cartItems;
   }
 
   clearCart() {

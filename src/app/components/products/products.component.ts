@@ -15,10 +15,15 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data: IProductData[]) => {
-      console.log(data)
+      //console.log(data)
       this.productData = data
     })
   
+  }
+
+  addItemToCart(item: IProductData) {
+    this.productService.addToCart(item);
+    console.log(this.productService.getCartItems());
   }
 
 }
