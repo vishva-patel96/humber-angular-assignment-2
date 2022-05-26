@@ -1,6 +1,7 @@
 <div class="container">
     <div *ngFor="let item of productData">
-        <item [itemName]="item.name" [itemPrice]="item.price" [itemImage]="item.image"></item>
+        <!-- <item [itemName]="item.name" [itemPrice]="item.price" [itemImage]="item.image"></item> -->
+        <item [item]="item"></item>
     </div>
 </div>
 

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
+import { IProductData } from 'src/app/productInterface';
 
 @Component({
   selector: 'item',
@@ -6,12 +8,21 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-@Input() itemName:string = '';
-@Input() itemPrice:string = '';
-@Input() itemImage:string ='';
+
+@Input() item:IProductData = {
+  name: '',
+  price: '',
+  image: ''
+}
+@Output() addingItemToCart = new EventEmitter<IProductData>();
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  addToCart(item: IProductData) {
+      this.addingItemToCart.emit(item)
   }
 
 }
