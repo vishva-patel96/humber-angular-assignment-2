@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'item',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-
+@Input() itemName:string = '';
+@Input() itemPrice:string = '';
+@Input() itemImage:string ='';
   constructor() { }
 
   ngOnInit(): void {

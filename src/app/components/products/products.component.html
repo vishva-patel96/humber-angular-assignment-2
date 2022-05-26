@@ -1,9 +1,7 @@
 <div class="container">
-    <item></item>
-    <item></item>
-    <item></item>
-    <item></item>
-    <item></item>
+    <div *ngFor="let item of productData">
+        <item [itemName]="item.name" [itemPrice]="item.price" [itemImage]="item.image"></item>
+    </div>
 </div>
 
 
