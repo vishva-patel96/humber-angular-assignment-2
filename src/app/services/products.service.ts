@@ -11,9 +11,18 @@ export class ProductsService {
 
   private listOfProducts:IProductData[] = [];
   private cartItems:IProductData[] = [];
+  private filterString: string = ''
 
   constructor(private http: HttpClient) { }
 
+  getFilterString(){
+    return this.filterString
+  }
+
+  setFilterString(filter:string){
+    this.filterString = filter;
+  }
+  
   getProducts():any {
     // http call to retrieve list of products
     return this.http.get('../../assets/product-data.json')

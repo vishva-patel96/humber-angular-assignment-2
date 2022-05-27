@@ -14,4 +14,8 @@ export class SearchBarComponent implements OnInit {
     
   }
 
+  seatchItem(event: KeyboardEvent) {
+    this.textEntered.emit((event.target as HTMLInputElement).value)
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProductData } from 'src/app/productInterface';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -9,7 +9,9 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
 
+  @Input() filterString = ''
   productData: IProductData[] = []
+  filteredData: IProductData[] = []
 
   constructor(private productService: ProductsService) {   }
 
@@ -18,7 +20,6 @@ export class ProductsComponent implements OnInit {
       //console.log(data)
       this.productData = data
     })
-  
   }
 
   addItemToCart(item: IProductData) {

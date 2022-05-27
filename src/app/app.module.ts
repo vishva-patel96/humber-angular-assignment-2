@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ItemComponent } from './components/item/item.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
+import { ProductsService } from './services/products.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { OrderItemComponent } from './components/order-item/order-item.component
     MatCardModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
