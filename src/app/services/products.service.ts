@@ -10,6 +10,7 @@ import { IProductData, IOrderData } from '../productInterface';
 export class ProductsService {
 
   private listOfProducts:IProductData[] = [];
+  private filteredProduct: IProductData[] = [];
   private cartItems:IProductData[] = [];
   private filterString= new BehaviorSubject("");
   //currentData = this.filterString.asObservable()
@@ -25,7 +26,7 @@ export class ProductsService {
   }
 
   getFilterString(){
-    return this.filterString;
+    return this.filterString.value;
   }
 
   setFilterString(filter:string){
@@ -54,19 +55,21 @@ export class ProductsService {
     this.cartItems = [];
   }
 
-  // filterData(filterString: any) {
-  //   if (filterString !== "") {
-  //     this.filteredData = this.productData.filter(product => {
-  //       const lowerCaseText = filterString.toLowerCase();
-  //       const lowerCaseBookName = product.name.toLowerCase();
-  //       return lowerCaseBookName.includes(lowerCaseText);
-  //     })
-  //   } else {
-  //     // if the user has not entered anything, it should show the full list
-  //     // of books;
-  //     this.filteredData = this.productData;
-  //   }
-  //   console.log(this.filterData)
-  // }
+  filterData() {
+    let filterString = this.getFilterString();
+    if (filterString !== "") {
+      this.filteredProduct = this.listOfProducts.filter(product => {
+        const lowerCaseText = filterString.toLowerCase();
+        const lowerCaseBookName = product.name.toLowerCase();
+        return lowerCaseBookName.includes(lowerCaseText);
+      })
+    } else {
+      this.filteredProduct = this.listOfProducts;
+    }
+  }
+
+  getFilteredProducts(){
+    return [...this.filteredProduct];
+  }
 
 }

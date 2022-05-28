@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProductData } from 'src/app/productInterface';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -9,9 +9,10 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
 
-  @Input() filterString = ''
+
   productData: IProductData[] = []
   filteredData: IProductData[] = this.productData
+  filterString: string = ''
   
   constructor(private productService: ProductsService) { 
 
@@ -19,13 +20,14 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
+    this.filterString = this.productService.getFilterString();
     // console.log(this.productService.getFilterString().value)
   }
 
   loadProducts(){
-    console.log(this.productService.getProductList())
     this.productService.getProducts().subscribe((data: IProductData[]) => {
       this.productData = data;
+      this.filteredData = this.productData;
     })
   }
 
@@ -35,10 +37,10 @@ export class ProductsComponent implements OnInit {
 
 
 
-  filterData(filterString: any) {
-    if (filterString !== "") {
+  filterData() {
+    if (this.filterString !== "") {
       this.filteredData = this.productData.filter(product => {
-        const lowerCaseText = filterString.toLowerCase();
+        const lowerCaseText = this.filterString.toLowerCase();
         const lowerCaseBookName = product.name.toLowerCase();
         return lowerCaseBookName.includes(lowerCaseText);
       })
