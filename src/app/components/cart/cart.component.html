@@ -1,9 +1,14 @@
 <div class="container">
-    <div *ngFor="let item of itemsInCart">
-        <cart-item [item]="item"></cart-item>
+    <div class="empty-cart-header" *ngIf="itemsInCart.length ===0 ; else cartNotEmpty">
+        <h1>Cart is empty</h1>
     </div>
+    <ng-template #cartNotEmpty>
+        <div *ngFor="let item of itemsInCart">
+            <cart-item [item]="item"></cart-item>
+        </div>
+    </ng-template>
 </div>
 
 <div>
-    <button mat-button>Clear Cart</button>
+    <button mat-button [disabled]="itemsInCart.length === 0" (click)="clearCart()">Clear Cart</button>
   </div>

@@ -21,9 +21,16 @@ export class NavBarComponent {
   }
 
   filterItems(input: string) {
+    
     this.prodService.setFilterString(input);
-    }
-
-
+    
+    // this.search.emit(input)
   }
+
+  // filterItems(input: string) {
+  //   this.prodService.setFilterString(input);
+  //   }
+
+
+}
 
