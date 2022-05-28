@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { IProductData, IOrderData } from '../productInterface';
+import { IProductData, IOrderData } from '../components/models/productInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ export class ProductsService {
   private filteredProduct: IProductData[] = [];
   private cartItems:IProductData[] = [];
   private filterString= new BehaviorSubject("");
+
   //currentData = this.filterString.asObservable()
 
   constructor(private http: HttpClient) { 

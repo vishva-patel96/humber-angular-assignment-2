@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ProductsService } from './services/products.service';
 
 
@@ -10,11 +10,12 @@ import { ProductsService } from './services/products.service';
 export class AppComponent {
   title = 'humber-angular-assignment-2';
   // searchString = ''
+
   constructor(private prodServ: ProductsService){}
   filterData(filterString: any) {
     //console.log(filterString);
-    console.log(this.prodServ.getFilteredProducts())
-    console.log()
+    //console.log(this.prodServ.getFilteredProducts())
+    // console.log()
   }
 
 }

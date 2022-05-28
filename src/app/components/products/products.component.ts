@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IProductData } from 'src/app/productInterface';
+import { IProductData } from 'src/app/components/models/productInterface';
 import { ProductsService } from 'src/app/services/products.service';
+
 
 @Component({
   selector: 'products',
@@ -20,37 +21,26 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
-    this.filterString = this.productService.getFilterString();
-    // console.log(this.productService.getFilterString().value)
   }
 
   loadProducts(){
     this.productService.getProducts().subscribe((data: IProductData[]) => {
       this.productData = data;
-      this.filteredData = this.productData;
+      this.filterString = this.productService.getFilterString();
+      if (this.filterString !== "") {
+        this.filteredData = this.productData.filter(product => {
+          const lowerCaseText = this.filterString.toLowerCase();
+          const lowerCaseProductName = product.name.toLowerCase();
+          return lowerCaseProductName.includes(lowerCaseText);
+        })
+      } else {
+        this.filteredData = this.productData;
+      }
     })
   }
 
   addItemToCart(item: IProductData) {
     this.productService.addToCart(item);
-  }
-
-
-
-  filterData() {
-    if (this.filterString !== "") {
-      this.filteredData = this.productData.filter(product => {
-        const lowerCaseText = this.filterString.toLowerCase();
-        const lowerCaseBookName = product.name.toLowerCase();
-        return lowerCaseBookName.includes(lowerCaseText);
-      })
-    } else {
-      // if the user has not entered anything, it should show the full list
-      // of books;
-      this.filteredData = this.productData;
-    }
-    console.log(this.filterData)
-    this.ngOnInit();
   }
 
 }

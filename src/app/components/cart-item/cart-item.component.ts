@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IProductData } from 'src/app/productInterface';
+import { IProductData } from 'src/app/components/models/productInterface';
 
 @Component({
   selector: 'cart-item',

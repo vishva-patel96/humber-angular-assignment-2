@@ -1,5 +1,5 @@
 <div class="container">
-        <div *ngFor="let item of filteredData" (search)="filterData()">
+        <div *ngFor="let item of filteredData">
             <!-- <item [itemName]="item.name" [itemPrice]="item.price" [itemImage]="item.image"></item> -->
             <item [item]="item" (addingItemToCart)="addItemToCart(item)"></item>
         </div>

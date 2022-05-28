@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IOrderData } from '../../productInterface'
+import { IOrderData } from '../models/productInterface'
 @Component({
   selector: 'order-item',
   templateUrl: './order-item.component.html',
