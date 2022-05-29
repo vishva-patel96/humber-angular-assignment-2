@@ -14,8 +14,6 @@ export class ProductsService {
   private cartItems:IProductData[] = [];
   private filterString= new BehaviorSubject("");
 
-  //currentData = this.filterString.asObservable()
-
   constructor(private http: HttpClient) { 
     this.http.get('../../assets/product-data.json').subscribe((data: any) => {
       this.listOfProducts = data;

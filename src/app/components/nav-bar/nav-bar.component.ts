@@ -14,22 +14,16 @@ export class NavBarComponent {
   @Input() title = '';
   @Output() search: EventEmitter<string>= new EventEmitter()
   constructor(private prodService: ProductsService) {
-
   }
 
   ngOnInit(): void {
   }
 
   filterItems(input: string) {
-    
     this.prodService.setFilterString(input);
     this.prodService.filterData();
     this.search.emit(input)
   }
-
-  // filterItems(input: string) {
-  //   this.prodService.setFilterString(input);
-  //   }
 
 
 }

@@ -15,9 +15,7 @@ export class ProductsComponent implements OnInit {
   filteredData: IProductData[] = this.productData
   filterString: string = ''
   
-  constructor(private productService: ProductsService) { 
-
-    }
+  constructor(private productService: ProductsService) { }
 
   ngOnInit(): void {
     this.loadProducts();
