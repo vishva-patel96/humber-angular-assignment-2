@@ -1,6 +1,4 @@
-import { Component, Input, OnChanges, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
-import { IProductData } from 'src/app/components/models/productInterface';
-import { ProductsService } from 'src/app/services/products.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'nav-bar',
@@ -9,20 +7,22 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class NavBarComponent {
 
-  
-
   @Input() title = '';
-  @Output() search: EventEmitter<string>= new EventEmitter()
-  constructor(private prodService: ProductsService) {
+  /**
+   * Output event to be emitted.
+   */
+  @Output() search: EventEmitter<string>= new EventEmitter();
+  constructor() {
   }
 
   ngOnInit(): void {
   }
 
+  /**
+   * @param input search text entered in the searchbar input
+   */
   filterItems(input: string) {
-    this.prodService.setFilterString(input);
-    this.prodService.filterData();
-    this.search.emit(input)
+    this.search.emit(input);
   }
 
 

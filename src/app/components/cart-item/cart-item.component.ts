@@ -7,6 +7,9 @@ import { IProductData } from 'src/app/components/models/productInterface';
   styleUrls: ['./cart-item.component.scss']
 })
 export class CartItemComponent implements OnInit {
+  /**
+   * Expect to get the item as an input from cart component
+   */
   @Input() item: IProductData = {
     name:'',
     price:'',

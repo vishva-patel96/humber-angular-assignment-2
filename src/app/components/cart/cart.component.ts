@@ -15,6 +15,10 @@ export class CartComponent implements OnInit {
     this.itemsInCart = this.prodService.getCartItems()
   }
 
+  /**
+   * clear the cartItemsin product service and refresh the page to 
+   * clear the rendered items.
+   */
   clearCart() {
     this.prodService.clearCart();
     this.ngOnInit();

@@ -1,6 +1,6 @@
+<nav-bar title="Humber e-store" (search)="searchText($event)"></nav-bar>
 <div class="container">
         <div *ngFor="let item of filteredData">
-            <!-- <item [itemName]="item.name" [itemPrice]="item.price" [itemImage]="item.image"></item> -->
             <item [item]="item" (addingItemToCart)="addItemToCart(item)"></item>
         </div>
 </div>

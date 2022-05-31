@@ -9,7 +9,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class OrdersComponent implements OnInit {
   
-  orders:IOrderData [] = []
+  orders:IOrderData [] = [];
 
   constructor(private productService: ProductsService) { }
 
